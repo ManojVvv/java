@@ -1,0 +1,30 @@
+interface IterF1 {
+    int add(int num1, int num2);
+    int sub(int num1, int num2);
+}
+
+class Calculator implements IterF1 {
+    // Overriding the add() method for addition
+    @Override
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+    @Override
+    public int sub(int num1, int num2) {
+        return num1 - num2;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+
+        
+        int sum = calc.add(5, 3);
+        System.out.println("Sum: " + sum); // Output: Sum: 8
+
+        
+        int difference = calc.sub(5, 3);
+        System.out.println("Difference: " + difference); // Output: Difference: 2
+    }
+}
