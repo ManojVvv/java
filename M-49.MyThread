@@ -1,0 +1,34 @@
+class MyThread extends Thread {
+    MyThread(String threadName) {
+        super(threadName); // Calling base class constructor
+        start(); 
+    }
+
+    public void run() {
+        try {
+            for (int i = 0; i < 5; i++) {
+                System.out.println(Thread.currentThread().getName() + ": " + i);
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Thread " + Thread.currentThread().getName() + " interrupted.");
+        }
+        System.out.println("Thread " + Thread.currentThread().getName() + " exiting.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        new MyThread("Child Thread");
+
+        try {
+            for (int i = 0; i < 5; i++) {
+                System.out.println("Main Thread: " + i);
+                Thread.sleep(2000);
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Main thread interrupted.");
+        }
+        System.out.println("Main thread exiting.");
+    }
+}
