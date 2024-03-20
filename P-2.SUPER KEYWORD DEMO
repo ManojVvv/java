@@ -1,0 +1,34 @@
+class Animal {
+    String name = "Animal";
+
+    void display() {
+        System.out.println("Name: " + name);
+    }
+}
+
+class Dog extends Animal {
+    String name = "Dog";
+
+    void displaySuper() {
+        System.out.println("Superclass name: " + super.name);
+    }
+
+    Dog() {
+        super();
+        System.out.println("Dog constructor invoked");
+    }
+
+    void callSuperMethod() {
+        super.display();
+    }
+}
+
+public class SuperKeywordDemo {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+
+        dog.displaySuper();
+
+        dog.callSuperMethod();
+    }
+}

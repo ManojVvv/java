@@ -1,0 +1,29 @@
+class Pair<T, U> {
+    private T first;
+    private U second;
+
+    public Pair(T first, U second) {
+        this.first = first;
+        this.second = second;
+    }
+
+    public T getFirst() {
+        return first;
+    }
+
+    public U getSecond() {
+        return second;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Pair<Integer, String> pair1 = new Pair<>(10, "Hello");
+        System.out.println("First element of pair1: " + pair1.getFirst());
+        System.out.println("Second element of pair1: " + pair1.getSecond());
+
+        Pair<Double, Character> pair2 = new Pair<>(3.14, 'A');
+        System.out.println("First element of pair2: " + pair2.getFirst());
+        System.out.println("Second element of pair2: " + pair2.getSecond());
+    }
+}

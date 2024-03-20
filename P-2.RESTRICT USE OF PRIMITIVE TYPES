@@ -1,0 +1,33 @@
+class IntWrapper {
+    private int value;
+
+    public IntWrapper(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+}
+
+class GenericClass<T> {
+    private T value;
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        GenericClass<IntWrapper> wrapperGeneric = new GenericClass<>();
+        wrapperGeneric.setValue(new IntWrapper(42));
+
+        IntWrapper wrapperValue = wrapperGeneric.getValue();
+        System.out.println("Value: " + wrapperValue.getValue());
+    }
+}
