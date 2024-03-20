@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class ProvidentFundInterestCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter the employee's salary: ");
+            double salary = scanner.nextDouble();
+
+            if (salary <= 0) {
+                throw new IllegalArgumentException("Salary must be a positive number");
+            }
+
+            double rateOfInterest = calculatePFInterest(salary);
+            System.out.println("Rate of interest for the employee's Provident Fund: " + rateOfInterest + "%");
+        } catch (IllegalArgumentException e) {
+            System.err.println("Error: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+
+    public static double calculatePFInterest(double salary) {
+        if (salary < 5000) {
+            return 6.0;
+        } else if (salary < 10000) {
+            return 7.0;
+        } else {
+            return 8.0;
+        }
+    }
+}
