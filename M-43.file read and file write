@@ -1,0 +1,23 @@
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileReadWriteExample {
+    public static void main(String[] args) {
+        String sourceFileName = "source.txt"; // Replace with your source file name
+        String destinationFileName = "destination.txt"; // Replace with your destination file name
+
+        try (FileReader reader = new FileReader(sourceFileName);
+             FileWriter writer = new FileWriter(destinationFileName)) {
+
+            int character;
+            while ((character = reader.read()) != -1) {
+                writer.write(character);
+            }
+
+            System.out.println("Data copied successfully from " + sourceFileName + " to " + destinationFileName);
+        } catch (IOException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+}
