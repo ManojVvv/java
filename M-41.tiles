@@ -1,0 +1,29 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class TileSequences {
+    public static int numTilePossibilities(String tiles) {
+        Set<String> set = new HashSet<>();
+        backtrack(tiles.toCharArray(), new boolean[tiles.length()], "", set);
+        return set.size();
+    }
+
+    private static void backtrack(char[] tiles, boolean[] visited, String current, Set<String> set) {
+        if (current.length() > 0) {
+            set.add(current);
+        }
+
+        for (int i = 0; i < tiles.length; i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                backtrack(tiles, visited, current + tiles[i], set);
+                visited[i] = false;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String tiles = "AAB";
+        System.out.println("Output: " + numTilePossibilities(tiles));
+    }
+}
